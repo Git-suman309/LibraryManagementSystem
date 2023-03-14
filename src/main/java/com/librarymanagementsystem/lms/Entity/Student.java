@@ -25,6 +25,7 @@ public class Student {
     @Enumerated(EnumType.STRING) //if you write oridinal then it will give index no to each name in enum
     private Departement departement;
 
+    @Column(unique = true) // this will allow only unique email in db
     private String email;
 
     //when a student created then it should also generte card

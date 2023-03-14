@@ -1,5 +1,7 @@
 package com.librarymanagementsystem.lms.Controller;
 
+import com.librarymanagementsystem.lms.DTO.BookRequestDto;
+import com.librarymanagementsystem.lms.DTO.BookResponceDto;
 import com.librarymanagementsystem.lms.Entity.Author;
 import com.librarymanagementsystem.lms.Entity.Book;
 import com.librarymanagementsystem.lms.Service.BookService;
@@ -16,13 +18,17 @@ public class BookController {
     BookService bookService;
 
     @PostMapping("/add")
-    public String addBook(@RequestBody Book book){
-        try {
-            bookService.addBook(book);
-        }catch (Exception e){
-            throw new RuntimeException(e.getMessage()+" Book not added");
-        }
-        return "Book Added Successfully.";
+    public BookResponceDto addBook(@RequestBody BookRequestDto bookRequestDto) throws Exception {
+//        try {
+//            bookService.addBook(book);
+//        }catch (Exception e){
+//            throw new RuntimeException(e.getMessage()+" Book not added");
+//        }
+//        return "Book Added Successfully.";
+        return bookService.addBook(bookRequestDto);
+
+
+
     }
 
 }
